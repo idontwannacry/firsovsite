@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Фірсов Олександр Дмитрович</title>
+  <style>
+    :root {
+      --primary-color: #003366;
+      --secondary-color: #e6f0ff;
+      --background-color: #f9f9f9;
+      --text-color: #222;
+      --accent-color: #0055aa;
+    }
+    * { box-sizing: border-box; scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(90deg, var(--primary-color), #005580);
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+    header h1 { margin: 0 0 10px; font-size: 28px; }
+    header p { margin: 0; font-size: 16px; opacity: 0.9; }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      background-color: var(--secondary-color);
+      padding: 10px 0;
+      box-shadow: inset 0 -1px 0 rgba(0,0,0,0.1);
+    }
+    nav a {
+      margin: 5px 15px;
+      text-decoration: none;
+      color: var(--accent-color);
+      font-weight: 600;
+    }
+    nav a:hover { text-decoration: underline; }
+    .container {
+      max-width: 960px;
+      margin: 40px auto;
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .photo {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .photo img {
+      width: 180px;
+      border-radius: 10px;
+      border: 4px solid var(--secondary-color);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    section { margin-bottom: 40px; }
+    section h2 {
+      border-bottom: 2px solid var(--secondary-color);
+      padding-bottom: 8px;
+      color: var(--primary-color);
+    }
+    ul { padding-left: 20px; }
+    a { color: var(--accent-color); }
+    a:hover { text-decoration: underline; }
+    @media screen and (max-width: 600px) {
+      .container { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Фірсов Олександр Дмитрович</h1>
+    <p>Доцент кафедри транспортних технологій та міжнародної логістики</p>
+  </header>
+  <nav>
+    <a href="#contacts">Контакти</a>
+    <a href="#education">Освіта</a>
+    <a href="#experience">Досвід</a>
+    <a href="#courses">Дисципліни</a>
+    <a href="#research">Наука</a>
+    <a href="#certs">Публікації</a>
+  </nav>
+  <div class="container">
+    <div class="photo">
+      <img src="firsov.png" alt="Фото Фірсова Олександра Дмитровича">
+    </div>
+    <section id="contacts">
+      <h2>Контактна інформація</h2>
+      <p>Email: <a href="mailto:firsov@umsf.dp.ua">firsov@umsf.dp.ua</a></p>
+      <p>Профілі:
+        <a href="https://www.scopus.com/authid/detail.uri?authorId=57200992952" target="_blank">Scopus</a>,
+        <a href="https://scholar.google.com.ua/citations?hl=ru&user=gNNGILMAAAAJ&view_op=list_works&sortby=pubdate" target="_blank">Google Scholar</a>,
+        <a href="https://orcid.org/0000-0002-6528-6447" target="_blank">ORCID</a>
+      </p>
+    </section>
+    <section id="education">
+      <h2>Освіта</h2>
+      <ul>
+        <li>1996 — ДДУ, спеціальність "Фізика"</li>
+        <li>2001 — Аспірантура, спец. 01.05.02</li>
+        <li>2003 — Кандидат фіз.-мат. наук</li>
+        <li>2004 — Підвищення кваліфікації, ННГУ</li>
+        <li>2022 — Магістр, спеціальність 275 "Транспортні технології"</li>
+      </ul>
+    </section>
+    <section id="experience">
+      <h2>Професійний досвід</h2>
+      <ul>
+        <li>2005 — Доцент НГУ</li>
+        <li>2006 — Доцент ФПМ ДНУ</li>
+        <li>2010 — ДДМА</li>
+        <li>2012 — УМСФ</li>
+      </ul>
+    </section>
+    <section id="courses">
+      <h2>Викладані дисципліни</h2>
+      <ul>
+        <li>Візуальне програмування</li>
+        <li>WEB-технології</li>
+        <li>Фізика</li>
+        <li>Операційні системи</li>
+        <li>Транспортна логістика</li>
+        <li>Моделювання транспортних систем</li>
+      </ul>
+    </section>
+    <section id="research">
+      <h2>Наукова діяльність</h2>
+      <p>Сфери: оптимізація логістики, системний аналіз, програмування.</p>
+      <ul>
+        <li>2000–2010 — учасник 4 держбюджетних НДР у ДНУ</li>
+        <li>2004 — Intel Virtuoso</li>
+        <li>2007–2009 — TEMPUS ECESIS</li>
+      </ul>
+    </section>
+    <section id="certs">
+      <h2>Публікації та сертифікати</h2>
+      <p><a href="https://drive.google.com/file/d/1g78hNkc38SEC03spfPXDhf_RHhylZ9WR/view" target="_blank">Основні наукові та навчально-методичні праці (PDF)</a></p>
+      <p><a href="https://drive.google.com/drive/folders/1hYYmB27mdEGMUAtR2REOJftDA1F4MxXM" target="_blank">Сертифікати (Google Drive)</a></p>
+    </section>
+  </div>
+</body>
+</html>
