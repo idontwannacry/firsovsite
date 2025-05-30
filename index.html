@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Фірсов Олександр Дмитрович</title>
   <style>
     :root {
@@ -27,8 +27,11 @@
       text-align: center;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     }
+    header h1 { margin: 0 0 10px; font-size: 28px; }
+    header p { margin: 0; font-size: 16px; opacity: 0.9; }
     nav {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       background-color: var(--secondary-color);
       padding: 10px 0;
@@ -40,6 +43,7 @@
       color: var(--accent-color);
       font-weight: 600;
     }
+    nav a:hover { text-decoration: underline; }
     .container {
       max-width: 960px;
       margin: 40px auto;
@@ -98,25 +102,52 @@
         <a href="https://orcid.org/0000-0002-6528-6447" target="_blank">ORCID</a>
       </p>
     </section>
-    <!-- інші секції тут -->
+    <section id="education">
+      <h2>Освіта</h2>
+      <ul>
+        <li>1996 — ДДУ, спеціальність "Фізика"</li>
+        <li>2001 — Аспірантура, спец. 01.05.02</li>
+        <li>2003 — Кандидат фіз.-мат. наук</li>
+        <li>2004 — Підвищення кваліфікації, ННГУ</li>
+        <li>2022 — Магістр, спеціальність 275 "Транспортні технології"</li>
+      </ul>
+    </section>
+    <section id="experience">
+      <h2>Професійний досвід</h2>
+      <ul>
+        <li>2005 — Доцент НГУ</li>
+        <li>2006 — Доцент ФПМ ДНУ</li>
+        <li>2010 — ДДМА</li>
+        <li>2012 — УМСФ</li>
+      </ul>
+    </section>
+    <section id="courses">
+      <h2>Викладані дисципліни</h2>
+      <ul>
+        <li>Візуальне програмування</li>
+        <li>WEB-технології</li>
+        <li>Фізика</li>
+        <li>Операційні системи</li>
+        <li>Транспортна логістика</li>
+        <li>Моделювання транспортних систем</li>
+      </ul>
+    </section>
+    <section id="research">
+      <h2>Наукова діяльність</h2>
+      <p>Сфери: оптимізація логістики, системний аналіз, програмування.</p>
+      <ul>
+        <li>2000–2010 — учасник 4 держбюджетних НДР у ДНУ</li>
+        <li>2004 — Intel Virtuoso</li>
+        <li>2007–2009 — TEMPUS ECESIS</li>
+      </ul>
+    </section>
+    <section id="certs">
+      <h2>Публікації та сертифікати</h2>
+      <p><a href="https://drive.google.com/file/d/1g78hNkc38SEC03spfPXDhf_RHhylZ9WR/view" target="_blank">Основні наукові та навчально-методичні праці (PDF)</a></p>
+      <p><a href="https://drive.google.com/drive/folders/1hYYmB27mdEGMUAtR2REOJftDA1F4MxXM" target="_blank">Сертифікати (Google Drive)</a></p>
+    </section>
   </div>
-
-  <!-- Місце для MVC-профілю -->
-  <div id="mvc-profile" style="
-    position: fixed;
-    bottom: 140px;
-    right: 20px;
-    background-color: #fff;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-    z-index: 10000;
-    max-width: 300px;
-  "></div>
-
   <script>
-    // === Model ===
     const authorData = {
       name: 'Фірсов Олександр Дмитрович',
       position: 'Доцент кафедри транспортних технологій',
@@ -127,7 +158,6 @@
       ]
     };
 
-    // === View ===
     function renderProfile(data) {
       const container = document.getElementById('mvc-profile');
       if (!container) return;
@@ -139,10 +169,8 @@
       `;
     }
 
-    // === DOM обхід ===
     function initDOMTraversal() {
       let nodes = [], index = 0, previousHighlighted = null;
-
       function traverse(node) {
         if (node.nodeType === 1 || node.nodeType === 3) nodes.push(node);
         node = node.firstChild;
@@ -151,7 +179,6 @@
           node = node.nextSibling;
         }
       }
-
       function highlight(node) {
         if (previousHighlighted) {
           previousHighlighted.style.outline = '';
@@ -163,7 +190,6 @@
           previousHighlighted = node;
         }
       }
-
       function showNode(idx) {
         const node = nodes[idx];
         highlight(node);
@@ -185,20 +211,13 @@
           }
         }
       }
-
       const domBtn = document.createElement('button');
       domBtn.textContent = '🟢 Начать обход DOM';
       Object.assign(domBtn.style, {
-        position: 'fixed',
-        bottom: '20px',
-        right: '20px',
-        padding: '10px 20px',
-        fontSize: '16px',
-        zIndex: '10000',
-        cursor: 'pointer',
-        backgroundColor: '#d4fcd4',
-        border: '1px solid #009900',
-        borderRadius: '8px'
+        position: 'fixed', bottom: '20px', right: '20px',
+        padding: '10px 20px', fontSize: '16px', zIndex: '10000',
+        cursor: 'pointer', backgroundColor: '#d4fcd4',
+        border: '1px solid #009900', borderRadius: '8px'
       });
       domBtn.onclick = () => {
         nodes = [];
@@ -209,27 +228,30 @@
       document.body.appendChild(domBtn);
     }
 
-    // === Controller ===
     function initProfile() {
       const mvcBtn = document.createElement('button');
       mvcBtn.textContent = 'Показати MVC-профіль';
       Object.assign(mvcBtn.style, {
-        padding: '10px 20px',
-        fontSize: '16px',
-        position: 'fixed',
-        bottom: '70px',
-        right: '20px',
-        backgroundColor: '#f0f0f0',
-        border: '1px solid #888',
-        borderRadius: '8px',
-        cursor: 'pointer',
-        zIndex: '10001'
+        padding: '10px 20px', fontSize: '16px',
+        position: 'fixed', bottom: '70px', right: '20px',
+        backgroundColor: '#f0f0f0', border: '1px solid #888',
+        borderRadius: '8px', cursor: 'pointer', zIndex: '10001'
       });
       mvcBtn.onclick = () => renderProfile(authorData);
       document.body.appendChild(mvcBtn);
+
+      const targetDiv = document.createElement('div');
+      targetDiv.id = 'mvc-profile';
+      Object.assign(targetDiv.style, {
+        position: 'fixed', bottom: '140px', right: '20px',
+        backgroundColor: '#fff', padding: '10px',
+        border: '1px solid #ccc', borderRadius: '6px',
+        boxShadow: '0 2px 6px rgba(0,0,0,0.15)', zIndex: '10000',
+        maxWidth: '300px'
+      });
+      document.body.appendChild(targetDiv);
     }
 
-    // === Init ===
     document.addEventListener('DOMContentLoaded', () => {
       initProfile();
       initDOMTraversal();
