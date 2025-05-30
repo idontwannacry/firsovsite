@@ -1,0 +1,29 @@
+name: Deploy static site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # или 'master', если это твоя основная ветка
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload HTML
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .  # корень репозитория, где лежит index.html
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
