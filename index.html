@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="uk">
 <head>
@@ -148,5 +147,79 @@
       <p><a href="https://drive.google.com/drive/folders/1hYYmB27mdEGMUAtR2REOJftDA1F4MxXM" target="_blank">Сертифікати (Google Drive)</a></p>
     </section>
   </div>
+<script>
+  window.onload = function () {
+    let nodes = [];
+    let index = 0;
+    let previousHighlighted = null;
+
+    function traverse(node) {
+      if (node.nodeType === 1 || node.nodeType === 3) {
+        nodes.push(node);
+      }
+      node = node.firstChild;
+      while (node) {
+        traverse(node);
+        node = node.nextSibling;
+      }
+    }
+
+    function highlight(node) {
+      if (previousHighlighted) {
+        previousHighlighted.style.outline = '';
+        previousHighlighted.style.backgroundColor = '';
+      }
+      if (node.nodeType === 1) {
+        node.style.outline = '2px solid red';
+        node.style.backgroundColor = '#ffe0e0';
+        previousHighlighted = node;
+      }
+    }
+
+    function showNode(idx) {
+      let node = nodes[idx];
+      highlight(node);
+      let content = (node.nodeType === 3 ? node.textContent.trim() : node.tagName || 'NODE');
+      if (!content) content = '[пусто]';
+      let msg = `Узел ${idx + 1}/${nodes.length}: ${content.slice(0, 20)}...`;
+
+      let options = [];
+      if (idx > 0) options.push('вернуться');
+      if (idx < nodes.length - 1) options.push('дальше');
+      options.push('выйти');
+
+      let choice = prompt(`${msg}\nВыберите: ${options.join(' / ')}`);
+
+      if (choice === 'дальше' && idx < nodes.length - 1) {
+        showNode(idx + 1);
+      } else if (choice === 'вернуться' && idx > 0) {
+        showNode(idx - 1);
+      } else {
+        alert('Работа завершена.');
+        if (previousHighlighted) {
+          previousHighlighted.style.outline = '';
+          previousHighlighted.style.backgroundColor = '';
+        }
+      }
+    }
+
+    // Добавляем кнопку запуска
+    const btn = document.createElement('button');
+    btn.textContent = '🟢 Начать обход DOM';
+    btn.style.position = 'fixed';
+    btn.style.bottom = '20px';
+    btn.style.right = '20px';
+    btn.style.padding = '10px 20px';
+    btn.style.fontSize = '16px';
+    btn.style.zIndex = '10000';
+    btn.style.cursor = 'pointer';
+    document.body.appendChild(btn);
+
+    btn.onclick = function () {
+      traverse(document.body);
+      showNode(index);
+    }
+  }
+</script>
 </body>
 </html>
